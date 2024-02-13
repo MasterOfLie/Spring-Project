@@ -2,6 +2,11 @@ package com.masteroflie.Spring.Project.models;
 
 import java.util.Objects;
 
+import org.hibernate.annotations.ManyToAny;
+
+import java.util.List;
+import java.util.ArrayList;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.Column;
@@ -9,6 +14,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.OverridesAttribute;
 import jakarta.validation.constraints.NotEmpty;
@@ -49,6 +55,18 @@ public class user {
     @Size (groups = {createUser.class, updateUser.class}, min = 8,max = 50)
     @Column(name = "password", length = 50, nullable = false)
     private String password;
+
+    //@ManyToMany(mappedBy = "user")
+    //private List<task> tasks = new ArrayList<task>();
+
+
+    //public List<task> getTasks() {
+    //    return this.tasks;
+    //}
+
+    //public void setTasks(List<task> tasks) {
+    //    this.tasks = tasks;
+    //}
 
 
     public user() {
@@ -117,4 +135,5 @@ public class user {
         return result;
     }
 }
+
 
